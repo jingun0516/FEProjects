@@ -14,65 +14,73 @@ window.initMap = () => {
     });
 }
 
-const btn_scrollup = document.querySelector('.btn-scrollup');
-window.addEventListener('scroll', function () {
+const scrollUpBtn = document.querySelector('.scrollup-btn');
+const scrollUp = () => {
     const scrollPosition = window.scrollY;
     if (scrollPosition > 0) {
-        btn_scrollup.style.opacity = 1;
+        scrollUpBtn.style.opacity = 1;
     } else {
-        btn_scrollup.style.opacity = 0;
+        scrollUpBtn.style.opacity = 0;
     }
-});
+};
+window.addEventListener('scroll', function ()  {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > 0) {
+        scrollUpBtn.style.opacity = 1;
+    } else {
+        scrollUpBtn.style.opacity = 0;
+    }
+}, { passive: true });
 
-btn_scrollup.addEventListener('click', function () {
+scrollUpBtn.addEventListener('click', function () {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
 });
 
-const input_email = document.querySelector('.input-email');
-const button_email = document.querySelector('.box-email .btn');
+const emailInput = document.querySelector('.email-input');
+const emailBtn = document.querySelector('.email-box .btn');
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const modalpage = document.querySelector('.container-modal');
-const btn_modalclose = document.querySelector('.btn-modal');
-const form_submit = document.querySelector('#form-email');
-const mobile_btn_email = document.querySelector('.btn-subscribe-mobile');
+const modalContent = document.querySelector('.modal-container');
+const modalCloseBtn = document.querySelector('.modal-btn');
+const submitForm = document.querySelector('#email-form');
+const mobileEmailBtn = document.querySelector('.mobile-subscribe-btn');
 
 const handleEmailClick = (event) => {
     event.preventDefault();
 
-    const input_value = input_email.value;
-    if (!input_value) {
+    const valueInput = emailInput.value;
+    if (!valueInput) {
         window.alert('이메일이 입력되지 않았습니다!');
-    } else if (!emailPattern.test(input_value)) {
+    } else if (!emailPattern.test(valueInput)) {
         window.alert('유효하지 않은 이메일입니다!');
     } else {
-        modalpage.style.display = 'flex';
+        modalContent.style.display = 'flex';
     }
 }
 
-button_email.addEventListener('click', handleEmailClick);
-mobile_btn_email.addEventListener('click', handleEmailClick);
+emailBtn.addEventListener('click', handleEmailClick);
+mobileEmailBtn.addEventListener('click', handleEmailClick);
 
-btn_modalclose.addEventListener('click', function (event) {
+modalCloseBtn.addEventListener('click', function (event) {
     event.preventDefault();
 
-    const formData = new FormData(form_submit);
+    const formData = new FormData(submitForm);
     console.log('제출 폼 데이터 확인:');
     formData.forEach((value, key) => {
         console.log(`${key}: ${value}`);
     });
 
-    // form_submit.submit();
+    // submitForm.submit();
 
-    modalpage.style.display = 'none';
+    modalContent.style.display = 'none';
 });
 
-const btnBlog = document.querySelector('.btn-blog');
-const btnInsta = document.querySelector('.btn-insta');
-const btnFacebook = document.querySelector('.btn-facebook');
-const btnYoutube = document.querySelector('.btn-youtube');
+const blogBtn = document.querySelector('.blog-btn');
+const instaBtn = document.querySelector('.insta-btn');
+const facebookBtn = document.querySelector('.facebook-btn');
+const youtubeBtn = document.querySelector('.youtube-btn');
 
 const iconHandleClick = (event, url)=>{
     if(event.button === 1) {        // 마우스 휠
@@ -82,28 +90,31 @@ const iconHandleClick = (event, url)=>{
         window.location.href = url;
     }
 }
-btnBlog.addEventListener('mousedown', (event) => iconHandleClick(event, "https://blog.naver.com"));
-btnInsta.addEventListener('mousedown', (event) => iconHandleClick(event, "https://instagram.com"));
-btnFacebook.addEventListener('mousedown', (event) => iconHandleClick(event, "https://facebook.com"));
-btnYoutube.addEventListener('mousedown', (event) => iconHandleClick(event, "https://youtube.com"));
+blogBtn.addEventListener('mousedown', (event) => iconHandleClick(event, "https://blog.naver.com"));
+instaBtn.addEventListener('mousedown', (event) => iconHandleClick(event, "https://instagram.com"));
+facebookBtn.addEventListener('mousedown', (event) => iconHandleClick(event, "https://facebook.com"));
+youtubeBtn.addEventListener('mousedown', (event) => iconHandleClick(event, "https://youtube.com"));
 
 
-const btn_menu = document.querySelector('.btn-menu');
-const menu_content = document.querySelector('.container-menu');
-const menu_close = document.querySelector('.btn-arrow');
-btn_menu.addEventListener('click',  () => {
-    menu_content.style.display = 'block';
+const menuBtn = document.querySelector('.menu-btn');
+const menuContent = document.querySelector('.menu-container');
+const menuCloseBtn = document.querySelector('.arrow-btn');
+menuBtn.addEventListener('click',  () => {
+    menuContent.style.display = 'block';
 });
-menu_close.addEventListener('click', () => {
-    menu_content.style.display = 'none';
+menuCloseBtn.addEventListener('click', () => {
+    menuContent.style.display = 'none';
 })
 
 
 const downloadFile = () => {
-    const link = document.createElement('a');
-    link.href = './images/modal-cat.png'; // 실제 파일 경로
-    link.download = 'cute-cat.png'; // 다운로드 파일 이름
-    link.click();
+    const userConfirmed = confirm("정말 다운받으시겠습니까?");
+    if(userConfirmed) {
+        const link = document.createElement('a');
+        link.href = './images/modal-cat.png'; // 실제 파일 경로
+        link.download = 'cute-cat.png'; // 다운로드 파일 이름
+        link.click();
+    }
 };
 
 
