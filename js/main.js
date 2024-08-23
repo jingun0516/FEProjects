@@ -90,6 +90,13 @@ menu_close.addEventListener('click', () => {
 })
 
 
+const downloadFile = () => {
+    const link = document.createElement('a');
+    link.href = './images/modal-cat.png'; // 실제 파일 경로
+    link.download = 'cute-cat.png'; // 다운로드 파일 이름
+    link.click();
+};
+
 
 // 비동기식 접근을 통해 제출 후 새로고침X
 //     btn_modalclose.addEventListener('click', function() {
