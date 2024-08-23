@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Hodu</title>
-    <link rel="stylesheet" href="./reset.css"/>
+    <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style/style.css">
-<!--     구글맵 키 -->
+    <!--     구글맵 키 -->
+    <script async src="./js/secretKey.js"></script>
 </head>
 <body>
 <div class="container">
@@ -23,7 +24,7 @@
                             <li><a href="">Support</a></li>
                         </ul>
                     </nav>
-                    <button class="btn">Download</button>
+                    <button class="btn btn-download" onclick="downloadFile()">Download</button>
                 </div>
                 <button class="btn-menu"><img src="./images/menu.svg" alt="메뉴" class="img-menu"></button>
             </div>
@@ -43,7 +44,7 @@
                         Lorem Ipsum has been the industry's standard dummy text
                         ever since the 1500s, when an unknown
                     </p>
-                    <button class="btn">Download</button>
+                    <button class="btn btn-download" onclick="downloadFile()">Download</button>
                 </div>
                 <img src="./images/h1cat.png" alt="헤더냥이" class="img-first-cat">
             </div>
@@ -76,6 +77,7 @@
                 </div>
             </section>
             <section class="section-cats">
+                <h3 class="catsimgs" style="display: none"></h3>
                 <div class="content-cats">
                     <img src="./images/cat1_1.png" alt="1냥" class="img-cats">
                     <img src="./images/cat1_2.png" alt="2냥" class="img-cats">
@@ -108,7 +110,7 @@
                     </div>
                     <div class="box-email">
                         <img src="./images/mail.svg" alt="이메일" class="img-email">
-                        <form action="" id="form-email">
+                        <form action="#" id="form-email">
                             <input type="email" class="input-email" name="value-email"
                                    placeholder="Enter your e-mail address">
                         </form>
@@ -128,7 +130,7 @@
             <a href="" class="about">About</a>
             <a href="" class="support">Support</a>
         </div>
-        <button class="btn">Download</button>
+        <button class="btn btn-download" onclick="downloadFile()">Download</button>
     </div>
     <footer id="footer">
         <div class="container-footer">

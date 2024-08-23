@@ -1,3 +1,12 @@
+const loadGoogleMaps = () => {
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap`;
+    script.async = true;
+    document.head.appendChild(script);
+};
+
+window.onload = loadGoogleMaps; // 페이지 로드 시 Google Maps API 로드
+
 window.initMap = () => {
     const map = new google.maps.Map(document.querySelector('#map'), {
         center: {lat: 37.24317528542883, lng: 131.86688500415858},
