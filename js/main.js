@@ -1,3 +1,4 @@
+// 구글맵 API
 const loadGoogleMaps = () => {
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap`;
@@ -14,15 +15,9 @@ window.initMap = () => {
     });
 }
 
+// 스크롤 이벤트
 const scrollUpBtn = document.querySelector('.scrollup-btn');
-const scrollUp = () => {
-    const scrollPosition = window.scrollY;
-    if (scrollPosition > 0) {
-        scrollUpBtn.style.opacity = 1;
-    } else {
-        scrollUpBtn.style.opacity = 0;
-    }
-};
+
 window.addEventListener('scroll', function ()  {
     const scrollPosition = window.scrollY;
     if (scrollPosition > 0) {
@@ -39,6 +34,7 @@ scrollUpBtn.addEventListener('click', function () {
     });
 });
 
+// email (구독)
 const emailInput = document.querySelector('.email-input');
 const emailBtn = document.querySelector('.email-box .btn');
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -47,6 +43,7 @@ const modalCloseBtn = document.querySelector('.modal-btn');
 const submitForm = document.querySelector('#email-form');
 const mobileEmailBtn = document.querySelector('.mobile-subscribe-btn');
 
+// email 유효성 검사
 const handleEmailClick = (event) => {
     event.preventDefault();
 
@@ -63,6 +60,7 @@ const handleEmailClick = (event) => {
 emailBtn.addEventListener('click', handleEmailClick);
 mobileEmailBtn.addEventListener('click', handleEmailClick);
 
+// 제출 이벤트
 modalCloseBtn.addEventListener('click', function (event) {
     event.preventDefault();
 
@@ -73,10 +71,35 @@ modalCloseBtn.addEventListener('click', function (event) {
     });
 
     // submitForm.submit();
+    // 현재 서버와 연결되어 있지 않기 때문에 제출 폼 데이터를 확인하기 위하여 submit() 구동 X
 
     modalContent.style.display = 'none';
 });
 
+
+// 모바일 화면 메뉴
+const menuBtn = document.querySelector('.menu-btn');
+const menuContent = document.querySelector('.menu-container');
+const menuCloseBtn = document.querySelector('.arrow-btn');
+menuBtn.addEventListener('click',  () => {
+    menuContent.style.display = 'block';
+});
+menuCloseBtn.addEventListener('click', () => {
+    menuContent.style.display = 'none';
+})
+
+// 다운로드 이벤트 (요구사항 X)
+const downloadFile = () => {
+    const userConfirmed = confirm("정말 다운받으시겠습니까?");
+    if(userConfirmed) {
+        const link = document.createElement('a');
+        link.href = './images/modal-cat.png'; // 실제 파일 경로
+        link.download = 'cute-cat.png'; // 다운로드 파일 이름
+        link.click();
+    }
+};
+
+// 아이콘 이벤트 (요구사항 X)
 const blogBtn = document.querySelector('.blog-btn');
 const instaBtn = document.querySelector('.insta-btn');
 const facebookBtn = document.querySelector('.facebook-btn');
@@ -94,49 +117,3 @@ blogBtn.addEventListener('mousedown', (event) => iconHandleClick(event, "https:/
 instaBtn.addEventListener('mousedown', (event) => iconHandleClick(event, "https://instagram.com"));
 facebookBtn.addEventListener('mousedown', (event) => iconHandleClick(event, "https://facebook.com"));
 youtubeBtn.addEventListener('mousedown', (event) => iconHandleClick(event, "https://youtube.com"));
-
-
-const menuBtn = document.querySelector('.menu-btn');
-const menuContent = document.querySelector('.menu-container');
-const menuCloseBtn = document.querySelector('.arrow-btn');
-menuBtn.addEventListener('click',  () => {
-    menuContent.style.display = 'block';
-});
-menuCloseBtn.addEventListener('click', () => {
-    menuContent.style.display = 'none';
-})
-
-
-const downloadFile = () => {
-    const userConfirmed = confirm("정말 다운받으시겠습니까?");
-    if(userConfirmed) {
-        const link = document.createElement('a');
-        link.href = './images/modal-cat.png'; // 실제 파일 경로
-        link.download = 'cute-cat.png'; // 다운로드 파일 이름
-        link.click();
-    }
-};
-
-
-// 비동기식 접근을 통해 제출 후 새로고침X
-//     btn_modalclose.addEventListener('click', function() {
-//     const formData = new FormData(form_submit);
-//     formData.forEach((value, key) => {
-//     console.log(`${key}: ${value}`);
-// });
-//     fetch(form_submit.action, {
-//     method: 'POST',
-//     body: formData,
-// })
-//     .then(response => {
-//     if (response.ok) {
-//     console.log('성공적으로 제출되었습니다.');
-//     modalpage.style.display = 'none'; // 모달 닫기
-// } else {
-//     console.error('제출 실패');
-// }
-// })
-//     .catch(error => {
-//     console.error('서버 요청 실패:', error);
-// });
-// });
