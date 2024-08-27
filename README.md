@@ -1,5 +1,7 @@
-# URL
-https://jingun0516.github.io/FEProjects/
+# 개발환경 및 배포 URL
+- HTML / CSS / JavaScript
+-   IntelliJ
+  https://jingun0516.github.io/FEProjects/
 
 # 메인 화면
 ![image](https://github.com/user-attachments/assets/22d32e66-16ba-4dc0-a80e-4b0d83f81dad)
