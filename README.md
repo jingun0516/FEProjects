@@ -1,6 +1,4 @@
-# 개발환경 및 배포 URL
-- HTML / CSS / JavaScript
--   IntelliJ
+# 배포 URL
   https://jingun0516.github.io/FEProjects/
 
 # 메인 화면
