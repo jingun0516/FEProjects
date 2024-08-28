@@ -43,7 +43,25 @@ const modalCloseBtn = document.querySelector('.modal-btn');
 const submitForm = document.querySelector('#email-form');
 const mobileEmailBtn = document.querySelector('.mobile-subscribe-btn');
 
-// email 유효성 검사
+// 구독창에서 엔터키가 눌렸을 때
+submitForm.addEventListener('keydown', (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();  
+        handleEmailClick(event);
+    }
+});
+
+// email 유효성 검사 및 container 블러
+const backdropContainer = document.querySelector('.backdrop-background');
+
+const applyBlur = () => {
+    backdropContainer.style.display = 'flex';
+};
+
+const hideBlur = () => {
+    backdropContainer.style.display = 'none';
+}
+
 const handleEmailClick = (event) => {
     event.preventDefault();
 
@@ -54,11 +72,15 @@ const handleEmailClick = (event) => {
         window.alert('유효하지 않은 이메일입니다!');
     } else {
         modalContent.style.display = 'flex';
+        applyBlur();
     }
-}
+};
 
 emailBtn.addEventListener('click', handleEmailClick);
 mobileEmailBtn.addEventListener('click', handleEmailClick);
+
+
+
 
 // 제출 이벤트
 modalCloseBtn.addEventListener('click', function (event) {
@@ -74,6 +96,7 @@ modalCloseBtn.addEventListener('click', function (event) {
     // 현재 서버와 연결되어 있지 않기 때문에 제출 폼 데이터를 확인하기 위하여 submit() 구동 X
 
     modalContent.style.display = 'none';
+    hideBlur();
 });
 
 
@@ -87,6 +110,7 @@ menuBtn.addEventListener('click',  () => {
 menuCloseBtn.addEventListener('click', () => {
     menuContent.style.display = 'none';
 })
+
 
 // 다운로드 이벤트 (요구사항 X)
 const downloadFile = () => {
