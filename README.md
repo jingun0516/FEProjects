@@ -2,10 +2,11 @@
 ![image](https://github.com/user-attachments/assets/22d32e66-16ba-4dc0-a80e-4b0d83f81dad)
 
 # 개발 환경 및 배포 URL
-  -IDE
-    -IntelliJ
-  -배포 환경
-    -github pages
+## IDE
+- IntelliJ
+
+## 배포 환경
+- GitHub Pages
   
   URL: https://jingun0516.github.io/FEProjects/
 
