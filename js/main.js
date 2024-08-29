@@ -1,3 +1,39 @@
+// 앵커 태그
+const anchors = document.querySelectorAll('a');
+
+anchors.forEach(anchor => {
+    anchor.addEventListener('click', (event) => {
+        event.preventDefault();
+    });
+});
+
+// 스크롤 잠그기
+let scrollPosition = 0;
+
+function lockScroll() {
+    // 현재 스크롤 위치를 기억합니다.
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    // body에 고정된 위치와 크기를 설정합니다.
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+}
+
+// 스크롤 해제하기
+function unlockScroll() {
+    // 잠그기 전의 스크롤 위치를 가져옵니다.
+    scrollPosition = -parseInt(document.body.style.top, 10);
+
+    // 스크롤 해제
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+
+    // 원래 위치로 스크롤을 복원합니다.
+    window.scrollTo(0, scrollPosition);
+}
+
 // 구글맵 API
 const loadGoogleMaps = () => {
     const script = document.createElement('script');
@@ -73,14 +109,20 @@ const handleEmailClick = (event) => {
     } else {
         modalContent.style.display = 'flex';
         applyBlur();
+        lockScroll();
     }
 };
 
 emailBtn.addEventListener('click', handleEmailClick);
 mobileEmailBtn.addEventListener('click', handleEmailClick);
 
+const backdropBackground = document.querySelector('.backdrop-background');
 
-
+backdropBackground.addEventListener('click', () => {
+    modalContent.style.display = 'none';
+    hideBlur();
+    unlockScroll();
+})
 
 // 제출 이벤트
 modalCloseBtn.addEventListener('click', function (event) {
@@ -97,6 +139,7 @@ modalCloseBtn.addEventListener('click', function (event) {
 
     modalContent.style.display = 'none';
     hideBlur();
+    unlockScroll();
 });
 
 

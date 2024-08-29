@@ -1,3 +1,12 @@
+.hidden{
+    position:absolute;
+    overflow:hidden;
+    width:1px;
+    height:1px;
+    margin:-1px;
+    clip:rect(0,0,0,0);
+}
+
 body{
     overflow-x: hidden;
 }
@@ -568,6 +577,7 @@ hr{
         bottom: 45.6410vw;
     }
     .footer-container{
+        width: 100vw;
         height: 45.6410vw;
         margin: 44.1026vw 0 0 0;
         flex-direction: row;
@@ -645,7 +655,7 @@ hr{
     .menu-container{
         position: fixed;
         width: 74.1026vw;
-        height: 210.2564vw;
+        height: 100vh;
         top: 0;
         background-color: #263140;
         z-index: 20000;
