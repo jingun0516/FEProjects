@@ -1,8 +1,14 @@
-# 배포 URL
-  https://jingun0516.github.io/FEProjects/
-
 # 메인 화면
 ![image](https://github.com/user-attachments/assets/22d32e66-16ba-4dc0-a80e-4b0d83f81dad)
+
+# 개발 환경 및 배포 URL
+### IDE
+- IntelliJ
+
+### 배포 환경
+- GitHub Pages
+  
+  URL: https://jingun0516.github.io/FEProjects/
 
 # 프로젝트 개요
 고양이 '호두' 의 사진을 다운받을 수 있고, 구독한 이후에 계속하여 '호두'의 사진을 받을 수 있는 사이트
@@ -62,6 +68,11 @@
            모달창은 position: fixed를 통해 뷰포트의 정중앙에 나타나도록 설정
            현재 연결된 서버가 없기 때문에 콘솔창에서 제출한 데이터를 확인하도록 설정
 
+
+# 요구사항 외의 추가 구현
+  1. 다운로드 클릭 시 다운로드를 할 것인지 confirm 창 출력 후에 다운로드 실행
+  2. 아이콘 클릭 시 각 아이콘에 맞는 홈페이지로 이동
+  3. 아이콘 마우스 휠로 클릭 시에 새 창에서 이동
 
 
 # 시행착오
