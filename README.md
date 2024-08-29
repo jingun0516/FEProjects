@@ -1,8 +1,13 @@
-# 배포 URL
-  https://jingun0516.github.io/FEProjects/
-
 # 메인 화면
 ![image](https://github.com/user-attachments/assets/22d32e66-16ba-4dc0-a80e-4b0d83f81dad)
+
+# 개발 환경 및 배포 URL
+  IDE
+    IntelliJ
+  배포 환경
+    github pages
+  
+  URL: https://jingun0516.github.io/FEProjects/
 
 # 프로젝트 개요
 고양이 '호두' 의 사진을 다운받을 수 있고, 구독한 이후에 계속하여 '호두'의 사진을 받을 수 있는 사이트
